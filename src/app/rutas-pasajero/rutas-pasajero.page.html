@@ -1,0 +1,22 @@
+<cabecera titulo="Rutas Disponibles"></cabecera>
+
+<ion-content >
+    <ion-list-header color="medium">
+        <ion-label>RUTAS</ion-label>
+      </ion-list-header>
+      <ion-searchbar showCancelButton cancelButtonText="Cancelar" placeholder="Buscar por Zona Inicio" [(ngModel)]="txtBuscarCliente" (ionChange)="filtrar()" ></ion-searchbar>
+    <ion-grid>
+      <ion-row class="cabecera-tabla">
+        <ion-col size="4">Salida</ion-col>
+        <ion-col size="2">Destino</ion-col>
+        <ion-col size="3">Hora</ion-col>
+        <ion-col size="3">Días</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let rutas of lstRutasFiltrado"  nowrap >
+        <ion-col size="4" (click)="seleccionarRuta(rutas)">{{rutas.zonaSalida}}</ion-col>
+        <ion-col size="2" (click)="seleccionarRuta(rutas)">{{rutas.zonaDestino}}</ion-col>
+        <ion-col size="3" (click)="seleccionarRuta(rutas)">{{rutas.horaPartida}}</ion-col>
+        <ion-col size="3" (click)="seleccionarRuta(rutas)">{{rutas.dias}}</ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>

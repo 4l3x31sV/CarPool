@@ -1,9 +1,61 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>registro-rutas</ion-title>
-  </ion-toolbar>
-</ion-header>
+<cabecera titulo="Registrar Rutas"></cabecera>
 
-<ion-content>
+<ion-content padding>
+    <form [formGroup]="frmRegistroRuta" novalidate>
+      <ion-item>
+        <ion-label position="stacked">Hora Partida</ion-label>
+        <ion-datetime formControlName="vHoraPartida" name="vHoraPartida" [(ngModel)]="rutas.horaPartida" displayFormat="HH:mm"></ion-datetime>
+      </ion-item>
+      <print-error [control]="f.vHoraPartida"></print-error>
+      <ion-item>
+        <ion-label position="stacked">Hora Llegada(Estimado)</ion-label>
+        <ion-datetime formControlName="vHoraLlegada" name="vHoraLlegada" [(ngModel)]="rutas.horaLlegada" displayFormat="HH:mm"></ion-datetime>
+      </ion-item>
+      <print-error [control]="f.vHoraLlegada"></print-error>
+      <ion-item>
+        <ion-label position="stacked">Zona Partida</ion-label>
+        <ion-input  formControlName="vZonaSalida" name="vZonaSalida" [(ngModel)]="rutas.zonaSalida"></ion-input>
+      </ion-item>
+      <print-error [control]="f.vZonaSalida"></print-error>
+      <ion-item>
+        <ion-label position="stacked">Zona Destino</ion-label>
+        <ion-input  formControlName="vZonaDestino" name="vZonaDestino" [(ngModel)]="rutas.zonaDestino"></ion-input>
+      </ion-item>
+      <print-error [control]="f.vZonaDestino"></print-error>
+      <ion-item (click)="agregarPuntos('partida')">
+        <ion-label position="stacked">Lugar de Partida</ion-label>
+        <ion-input type="number" readonly formControlName="vLugarPartida" name="vLugarPartida" [(ngModel)]="rutas.puntoInicial">{{txtRegitradoInicio}}</ion-input>
+      </ion-item>
+      <print-error [control]="f.vLugarPartida"></print-error>
+      <ion-item (click)="agregarPuntos('destino')">
+        <ion-label  position="stacked">Lugar de Destino</ion-label>
+        <ion-input type="number" readonly formControlName="vLugarDestino" name="vLugarDestino" [(ngModel)]="rutas.puntoFinal">{{txtRegitradoDestino}}</ion-input>
+      </ion-item>
+      <print-error [control]="f.vLugarDestino"></print-error>
+      <ion-item>
+          <ion-label position="stacked">Dias</ion-label>
+          <ion-input formControlName="vDias" name="vDias"  [(ngModel)]="rutas.dias" type="text"
+                    (click)="presentAlertCheckbox()" readonly></ion-input>
+      </ion-item>
+      <print-error [control]="f.vDias"></print-error>
+      <ion-item>
+        
+        <ion-button expand="full"  fill="clear" (click)="adicionarParada()">Añadir Puntos de Parada<ion-icon slot="start" name="add"></ion-icon></ion-button>
+      </ion-item>
+      <ion-list>
+        <ion-item>
+          <ion-list>
+              <ion-list-header>
+                  <ion-label>Paradas</ion-label>
+                </ion-list-header>
+            <ion-item *ngFor="let direccion of lstDirecciones">
+              <ion-label>Ubicación: {{direccion.lat + ", " +direccion.lng}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-item>
+      </ion-list>
 
+      <ion-button expand="block" (click)="registrarRuta()" >Guardar Ruta</ion-button>
+      <ion-button *ngIf="esModificacion" expand="block" color="danger" >Eliminar Ruta</ion-button>
+    </form>
 </ion-content>

@@ -1,0 +1,26 @@
+<cabecera titulo="Rutas Registradas"></cabecera>
+
+<ion-content>
+    <ion-list-header color="medium">
+        <ion-label>LISTA DE RUTAS</ion-label>
+      </ion-list-header>
+    <ion-grid>
+      <ion-row class="cabecera-tabla">
+        <ion-col size="4">Salida</ion-col>
+        <ion-col size="2">Destino</ion-col>
+        <ion-col size="3">Hora</ion-col>
+        <ion-col size="3">Días</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let rutas of lstRutas"  nowrap >
+        <ion-col size="4" (click)="seleccionarRuta(rutas)">{{rutas.zonaSalida}}</ion-col>
+        <ion-col size="2" (click)="seleccionarRuta(rutas)">{{rutas.zonaDestino}}</ion-col>
+        <ion-col size="3" (click)="seleccionarRuta(rutas)">{{rutas.horaPartida}}</ion-col>
+        <ion-col size="3" (click)="seleccionarRuta(rutas)">{{rutas.dias}}</ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="verdec" (click)="presentActionSheet()" >
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>

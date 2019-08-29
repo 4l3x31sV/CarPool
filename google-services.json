@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "524862671928",
+    "firebase_url": "https://car-pool-54eb7.firebaseio.com",
+    "project_id": "car-pool-54eb7",
+    "storage_bucket": "car-pool-54eb7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524862671928:android:32faf9572a40508b",
+        "android_client_info": {
+          "package_name": "com.yvaganet.carpool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "524862671928-kq3676m4phreeoj485vl4vlhuf5epet6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfkw-hBv4zsSgzGdJzcPD03w8dscu0JWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "524862671928-kq3676m4phreeoj485vl4vlhuf5epet6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

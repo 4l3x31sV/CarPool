@@ -75,3 +75,13 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+.cabecera-tabla{
+  text-align: center;
+  font-weight: bold;
+  background-color: var(--ion-color-rosadoClaro) !important;
+  color: var(--ion-color-rosado-contrast) !important;
+  padding: 10px 10px;
+  font-size: 15px;
+  border-radius: 10px;
+
+}
