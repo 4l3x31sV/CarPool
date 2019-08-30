@@ -56,6 +56,6 @@
       </ion-list>
 
       <ion-button expand="block" (click)="registrarRuta()" >Guardar Ruta</ion-button>
-      <ion-button *ngIf="esModificacion" expand="block" color="danger" >Eliminar Ruta</ion-button>
+      <ion-button *ngIf="esModificacion" expand="block" color="danger" (click)="borrarRuta()" >Eliminar Ruta</ion-button>
     </form>
 </ion-content>

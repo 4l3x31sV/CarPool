@@ -22,4 +22,7 @@ export class RutasService {
     return this.afDB.list('rutas', ref =>
       ref.orderByChild('idUsuario').equalTo(idUsuario)).valueChanges();
   }
+  eliminarRuta(idRuta: number) {
+    this.afDB.database.ref('rutas/' + idRuta).remove();
+  }
 }

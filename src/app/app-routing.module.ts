@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'mapa', loadChildren: './mapa/mapa.module#MapaPageModule' },
   { path: 'registro-usuario', loadChildren: './registro-usuario/registro-usuario.module#RegistroUsuarioPageModule' },  { path: 'listar-rutas', loadChildren: './listar-rutas/listar-rutas.module#ListarRutasPageModule' },
   { path: 'rutas-pasajero', loadChildren: './rutas-pasajero/rutas-pasajero.module#RutasPasajeroPageModule' },
+  { path: 'mapa-rutas', loadChildren: './pasajero/mapa-rutas/mapa-rutas.module#MapaRutasPageModule' },
 
 ];
 

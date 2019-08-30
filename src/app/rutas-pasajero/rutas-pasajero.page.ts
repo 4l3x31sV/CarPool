@@ -14,9 +14,9 @@ import { LoadingService } from '../providers/loading.service';
 })
 export class RutasPasajeroPage implements OnInit {
   public txtBuscarCliente: string;
-  private lstRutas:Array<Rutas>=[];
-  private lstRutasFiltrado:Array<Rutas>=[];
-  private user: Usuarios;
+  public lstRutas:Array<Rutas>=[];
+  public lstRutasFiltrado:Array<Rutas>=[];
+  public user: Usuarios;
   constructor(public userParam: UserParamService,
     public rutasService: RutasService,
     public navController: NavController,
@@ -37,8 +37,8 @@ export class RutasPasajeroPage implements OnInit {
   }
   seleccionarRuta(ruta: Rutas) {
     this.navParams.set(ruta);
-    //this.navController.navigateRoot('/mapa-ruta');
-    console.log(ruta);
+    this.navController.navigateForward('/mapa-rutas');
+    
   }
   listarRutas() {
     this.loading.present();

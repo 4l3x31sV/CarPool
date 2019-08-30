@@ -1,18 +1,14 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="box-login">
+    <div class="login-form">
+      <div class="boton-margen">
+        <div style="align-content: center; font-size: 1.6em; padding: 15px 0px; opacity: 1;" color="facebook">Inicia Sesión</div>
+        <ion-button style="opacity: 1;" color="facebook" (click)="loginFacebook()" >
+            <ion-icon slot="start" name="logo-facebook"></ion-icon>
+          Iniciar Sesión con Facebook
+        </ion-button>
+      </div>
+    </div>
+  </div>
 
-<ion-content padding>
-  Prueba registro con facebook.
-  <ion-button (click)="loginFacebook()" expand="block">Iniciar Sesión con Facebook</ion-button>
-  
-  <ion-item *ngIf="showUser">
-    <ion-avatar item-left>
-      <img [src]="user.picture.data.url" alt="">
-    </ion-avatar>
-    <h2>{{user.name}}</h2>
-    <p>{{user.email}}</p>
-  </ion-item>
 </ion-content>

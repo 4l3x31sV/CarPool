@@ -9,6 +9,8 @@ import { Usuarios } from 'src/app/model/UsuariosFace';
 import { RutasService } from 'src/app/providers/rutas.service';
 import { UserParamService } from 'src/app/providers/user-param.service';
 import { LoadingService } from 'src/app/providers/loading.service';
+import { ToastService } from 'src/app/providers/toast.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-registro-rutas',
@@ -38,11 +40,11 @@ export class RegistroRutasPage implements OnInit {
     public userParam: UserParamService,
     public loadingService: LoadingService,
     public navController: NavController,
+    public toastService: ToastService
     ) {
 
         this.user = this.userParam.get();
         this.rutas.idUsuario = this.user.id;
-        console.log(this.user);
     }
 
   ngOnInit() {
@@ -142,14 +144,12 @@ get f(): any {
                 role: 'cancel',
                 cssClass: 'secondary',
                 handler: () => {
-                    console.log('Confirm Cancel');
+                    
                 }
             }, {
                 text: 'Ok',
                 handler: (data) => {
                     
-                    console.log('Confirm Ok');
-                    console.log(data);
                     this.rutas.dias = null;
                     for (let i = 0; i < data.length; i++) {
                         if (this.rutas.dias) {
@@ -171,12 +171,12 @@ get f(): any {
     }).then(dato => {
         dato.present();
         dato.onDidDismiss().then(resultado => {
-            console.log(resultado.data);
+           
             let direcciones: Adress = new Adress(null,null);
             direcciones.lat = resultado.data.lat;
             direcciones.lng = resultado.data.lng;
             this.lstDirecciones.push(direcciones);
-            console.log(this.lstDirecciones);
+         
         });
     });
   }
@@ -186,12 +186,11 @@ get f(): any {
       }).then(dato => {
           dato.present();
           dato.onDidDismiss().then(resultado => {
-              console.log(resultado.data);
+              
               let direcciones: Adress = new Adress(null,null);
               direcciones.lat = resultado.data.lat;
               direcciones.lng = resultado.data.lng;
-              console.log('*****************************');
-              console.log(direcciones);
+              
               if(tipo==='partida') {
                   this.rutas.puntoInicial = direcciones
                   this.txtRegitradoInicio = 'Punto partida registrado'
@@ -208,12 +207,22 @@ get f(): any {
   async borrarUltimaParada() {
     this.lstDirecciones.pop();
   }
+  public borrarRuta() {
+      this.rutaService.eliminarRuta(this.rutas.id);
+      this.toastService.presentToast('Se ha eliminado el registro correctamente.');
+  }
   public registrarRuta() {
       this.loadingService.present();
+      let horaInicio = moment(this.rutas.horaPartida).format("HH:mm");
+      let horaFin = moment(this.rutas.horaLlegada).format("HH:mm");
+      this.rutas.horaPartida = horaInicio;
+      this.rutas.horaLlegada = horaFin;
       this.rutas.adress = this.lstDirecciones;
+      
       this.rutaService.crearRuta(this.rutas).then(data => {
-          console.log('registrado');
+          
           this.loadingService.dismiss();
+          this.toastService.presentToast('Se ha Registrado el registro correctamente.');
           this.navController.navigateBack('/listar-rutas');
       });
   }

@@ -1,0 +1,26 @@
+.box-login {
+    background-image: url('../../assets/img/lapaznoche.jpg') ;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+
+.boton-margen {
+    //padding-top: 60%;
+    text-align: center;
+}
+.login-form {
+    opacity: 0.92;
+    margin-top: 90%;
+    background-color: #ffffff;
+    position:absolute;
+    left: 15%;
+    right: 15%;
+    height: 20%;
+    width: 70%;
+    border-radius: 20px;
+    -webkit-box-shadow: 4px 7px 7px 0px rgba(0,0,0,0.63);
+    -moz-box-shadow: 4px 7px 7px 0px rgba(0,0,0,0.63);
+    box-shadow: 4px 7px 7px 0px rgba(0,0,0,0.63);
+}

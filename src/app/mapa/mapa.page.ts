@@ -58,15 +58,14 @@ export class MapaPage implements OnInit {
             respuesta.subscribe(obj => {
               this.latitud = obj.lat;
               this.longitud = obj.lng;
-              console.log('Direccion obtenida desde el cuadro de texto');
-              console.log(obj);
+              
             })
   }
   markerEvent(marker): Observable<any> {
     return Observable.create((observer) => {
-      console.log(JSON.stringify(marker.getPosition()));
+      
       marker.addListener('dragend', () => {
-        console.log(JSON.stringify(marker.getPosition()));
+        
         const objStr: string = JSON.stringify(marker.getPosition());
         const obj = JSON.parse(objStr);
         observer.next(obj);

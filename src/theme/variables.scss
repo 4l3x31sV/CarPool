@@ -74,12 +74,79 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+
+  /** Facebook **/
+  --ion-color-facebook: #3b5998;
+  --ion-color-facebook-rgb: 59, 89, 152;
+  --ion-color-facebook-contrast: #FFFFFF;
+  --ion-color-facebook-contrast-rgb: 255, 255, 255;
+  --ion-color-facebook-shade: #2c4986;
+  --ion-color-facebook-tint: #2c4986;
+
+  /** whatsapp **/
+  --ion-color-whatsapp: #00E676;
+  --ion-color-whatsapp-rgb: 0, 230, 118;
+  --ion-color-whatsapp-contrast: #FFFFFF;
+  --ion-color-whatsapp-contrast-rgb: 255, 255, 255;
+  --ion-color-whatsapp-shade: #00E676;
+  --ion-color-whatsapp-tint: #00E676;
+
+  //5693fd
+  /** primary **/
+  --ion-color-azulc: #5693fd;
+  --ion-color-azulc-rgb: 86, 147, 253;
+  --ion-color-azulc-contrast: #ffffff;
+  --ion-color-azulc-contrast-rgb: 255, 255, 255;
+  --ion-color-azulc-shade: #3171e0;
+  --ion-color-azulc-tint: #4c8dff;
+}
+.ion-color-azulc {
+  --ion-color-base: #5693fd;
+  --ion-color-base-rgb: 86, 147, 253;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255, 255, 255;
+  --ion-color-shade: #3171e0;
+  --ion-color-tint: #4c8dff;
+}
+.ion-color-facebook {
+  --ion-color-base: #3b5998;
+  --ion-color-base-rgb: 59, 89, 152;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255, 255, 255;
+  --ion-color-shade: #2c4986;
+  --ion-color-tint: #2c4986;
+}
+.ion-color-whatsapp {
+  --ion-color-base: #00E676;
+  --ion-color-base-rgb: 0, 230, 118;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255, 255, 255;
+  --ion-color-shade: #00E676;
+  --ion-color-tint: #00E676;
+}
+.spiner-loading {
+  height: 100% !important;
+  width: 100% !important;
+  margin: auto !important;
+  background-repeat: no-repeat;
+}
+.loading-wrapper {
+  height: 100px;
+  width: 100px;
+  background-image: url("../assets/img/icon.svg") !important; 
+  background-repeat: no-repeat;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+  border-radius: 30% !important;
 }
 .cabecera-tabla{
   text-align: center;
   font-weight: bold;
-  background-color: var(--ion-color-rosadoClaro) !important;
-  color: var(--ion-color-rosado-contrast) !important;
+  background-color: var(--ion-color-azulc) !important;
+  color: var(--ion-color-azulc-contrast) !important;
   padding: 10px 10px;
   font-size: 15px;
   border-radius: 10px;

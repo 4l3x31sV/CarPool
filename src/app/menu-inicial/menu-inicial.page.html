@@ -1,20 +1,20 @@
 <cabecera titulo="Menu Inicial"></cabecera>
 
-<ion-content padding>
-    <ion-list>
-      <ion-item>
-        <ion-card>
-          <img src="../../assets/img/conductor.jpg" />
+<ion-content>
+    
+     
+        <ion-card class="imagen">
+          <button fill="clear" (click)="goToConductor()" >
+            <img  src="../../assets/img/conductor.png" />
+          </button>
         </ion-card>
-      </ion-item>
-      <ion-item>
-        <ion-card>
-          <img src="../../assets/img/pasajero.jpg" />
+     
+        <ion-card class="imagen">
+          <button (click)="goToPasajero()" fill="clear">
+            <img src="../../assets/img/pasajero.png" />
+          </button>
         </ion-card>
-       </ion-item>
-    </ion-list>
-   
-
-    <ion-button (click)="goToConductor()" expand="block">Soy Conductor</ion-button>
-    <ion-button (click)="goToPasajero()" expand="block">Soy Pasajero</ion-button>
+      
+    
+  
 </ion-content>

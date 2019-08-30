@@ -13,8 +13,8 @@ import { LoadingService } from '../providers/loading.service';
   styleUrls: ['./listar-rutas.page.scss'],
 })
 export class ListarRutasPage implements OnInit {
-  private lstRutas:Array<Rutas>=[];
-  private user: Usuarios;
+  public lstRutas:Array<Rutas>=[];
+  public user: Usuarios;
   constructor(
     public userParam: UserParamService,
     public rutasService: RutasService,
@@ -24,7 +24,7 @@ export class ListarRutasPage implements OnInit {
     public actionSheetController: ActionSheetController,
   ) {
     this.user = this.userParam.get();
-    console.log(this.user);
+   
    }
 
   ngOnInit() {
@@ -34,7 +34,7 @@ export class ListarRutasPage implements OnInit {
     this.loading.present();
     this.rutasService.rutasPorUsuario(this.user.id).subscribe(respuesta => {
       this.lstRutas = Object.assign(respuesta);
-      console.log(this.lstRutas);
+     
       this.loading.dismiss();
     });
   }
@@ -54,7 +54,7 @@ export class ListarRutasPage implements OnInit {
         text: 'Nueva Ruta',
         icon: 'calendar',
         handler: () => {
-          console.log('Share clicked');
+          
           this.navParams.set(null);
           this.registrarRuta();
         }
@@ -64,7 +64,7 @@ export class ListarRutasPage implements OnInit {
         icon: 'close',
         role: 'cancel',
         handler: () => {
-          console.log('Cancel clicked');
+          
         }
       }]
     });
