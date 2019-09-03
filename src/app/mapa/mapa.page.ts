@@ -55,11 +55,11 @@ export class MapaPage implements OnInit {
       animation: google.maps.Animation.DROP
     });
     let respuesta = this.markerEvent(marker);
-            respuesta.subscribe(obj => {
+    respuesta.subscribe(obj => {
+              console.log(obj);
               this.latitud = obj.lat;
               this.longitud = obj.lng;
-              
-            })
+            });
   }
   markerEvent(marker): Observable<any> {
     return Observable.create((observer) => {

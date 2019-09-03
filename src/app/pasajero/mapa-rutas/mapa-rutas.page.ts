@@ -41,9 +41,9 @@ export class MapaRutasPage implements OnInit {
     }
   }
   cargarMapa() {
-    let myLatlng = { lat: -16.4971653, lng: -68.1320507};
+    let myLatlng = this.rutas.puntoInicial;
     const mapOptions = {
-      zoom: 16,
+      zoom: 12,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: false,
       streetViewControl: false,
@@ -63,7 +63,7 @@ export class MapaRutasPage implements OnInit {
     ({
       position: this.rutas.puntoInicial,
       map: this.maps,
-      draggable: true,
+      draggable: false,
       animation: google.maps.Animation.DROP,
       label: 'I'
     });
@@ -71,7 +71,7 @@ export class MapaRutasPage implements OnInit {
     ({
       position: this.rutas.puntoFinal,
       map: this.maps,
-      draggable: true,
+      draggable: false,
       animation: google.maps.Animation.DROP,
       label: 'F'
     });
@@ -81,7 +81,7 @@ export class MapaRutasPage implements OnInit {
         ({
           position: direcciones,
           map: this.maps,
-          draggable: true,
+          draggable: false,
           animation: google.maps.Animation.DROP,
         });
       }

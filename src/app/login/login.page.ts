@@ -26,11 +26,13 @@ export class LoginPage implements OnInit {
   ngOnInit() {
     this.loadItems();
   }
-  loginFacebook(){
+  loginFacebook() {
+    this.facebook.getLoginStatus().then(res => {
+      console.log(res);
+    });
     this.facebook.login(['public_profile', 'email'])
     .then(rta => {
-      
-      if(rta.status == 'connected'){
+      if(rta.status === 'connected') {
         this.getInfo();
       };
     })
@@ -39,19 +41,17 @@ export class LoginPage implements OnInit {
     });
   }
 
-  getInfo(){
-    this.facebook.api('/me?fields=id,name,email,first_name,picture,last_name,gender',['public_profile','email'])
-    .then(data=>{
-    
-      this.showUser = true; 
+  getInfo() {
+    this.facebook.api('/me?fields=id,name,email,first_name,picture,last_name,gender', ['public_profile', 'email'])
+    .then(data => {
+
+      this.showUser = true;
       this.user =  Object.assign(data);
-      if(this.user) {
+      if (this.user) {
         this.storageService.addItem(this.user).then(resp => {
-          
           this.userParam.set(this.user);
           this.events.publish('user:login');
           this.navController.navigateRoot('/menu-inicial');
-          
         })
       }
 
