@@ -56,7 +56,7 @@ export class MapaPage implements OnInit {
     });
     let respuesta = this.markerEvent(marker);
     respuesta.subscribe(obj => {
-              console.log(obj);
+              
               this.latitud = obj.lat;
               this.longitud = obj.lng;
             });

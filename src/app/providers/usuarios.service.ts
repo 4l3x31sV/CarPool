@@ -11,13 +11,13 @@ export class UsuariosService {
   constructor(public afDB: AngularFireDatabase) {
     this.rootRef = this.afDB.database.ref();
   }
-  crearRuta(mdlUsuarios: Usuarios): Promise<any> {
+  crearUsuario(mdlUsuarios: Usuarios): Promise<any> {
     if(!mdlUsuarios.id){
       mdlUsuarios.id = Date.now();
     }
-   return this.afDB.database.ref('usuarios/' + mdlUsuarios.id).set(mdlUsuarios);
+    return this.afDB.database.ref('usuarios/' + mdlUsuarios.id).set(mdlUsuarios);
   }
-  obtenerRutas() {
-    return this.afDB.list<Rutas>('usuarios').valueChanges();
+  obtenerUsuarios() {
+    return this.afDB.list<Usuarios>('usuarios').valueChanges();
   }
 }

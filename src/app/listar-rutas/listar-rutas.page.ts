@@ -6,6 +6,7 @@ import { Rutas } from '../model/RutasModel';
 import { Usuarios } from '../model/UsuariosFace';
 import { NavParamsService } from '../providers/nav-params.service';
 import { LoadingService } from '../providers/loading.service';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-listar-rutas',
@@ -22,9 +23,9 @@ export class ListarRutasPage implements OnInit {
     public navParams: NavParamsService,
     public loading: LoadingService,
     public actionSheetController: ActionSheetController,
+    public iab: InAppBrowser,
   ) {
     this.user = this.userParam.get();
-   
    }
 
   ngOnInit() {
@@ -34,7 +35,6 @@ export class ListarRutasPage implements OnInit {
     this.loading.present();
     this.rutasService.rutasPorUsuario(this.user.id).subscribe(respuesta => {
       this.lstRutas = Object.assign(respuesta);
-     
       this.loading.dismiss();
     });
   }

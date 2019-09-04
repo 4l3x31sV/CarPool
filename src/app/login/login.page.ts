@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Facebook } from '@ionic-native/facebook/ngx';
 import { Usuarios } from '../model/UsuariosFace';
 import { StorageService } from '../providers/storage.service';
-import { NavController, Events } from '@ionic/angular';
+import { NavController, Events, AlertController } from '@ionic/angular';
 import { UserParamService } from '../providers/user-param.service';
 import { UsuariosService } from '../providers/usuarios.service';
 
@@ -25,10 +25,11 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.loadItems();
+    
   }
   loginFacebook() {
     this.facebook.getLoginStatus().then(res => {
-      console.log(res);
+      
     });
     this.facebook.login(['public_profile', 'email'])
     .then(rta => {
@@ -72,5 +73,4 @@ export class LoginPage implements OnInit {
       }
     });
   }
-  
 }

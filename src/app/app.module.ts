@@ -19,6 +19,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/da
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 export const firebaseConfig = {
   apiKey: "AIzaSyA0_JmYHNdmJSZAlEOECCDgGvs52OTxeqU",
   authDomain: "car-pool-54eb7.firebaseapp.com",
@@ -50,6 +51,7 @@ export const firebaseConfig = {
     SplashScreen,
     Facebook,
     FirebaseCarpoolService,
+    InAppBrowser,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
