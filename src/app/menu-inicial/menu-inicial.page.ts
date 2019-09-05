@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
 import { UserParamService } from '../providers/user-param.service';
 import { Usuarios } from '../model/UsuariosFace';
@@ -6,7 +6,6 @@ import { StorageService } from '../providers/storage.service';
 import { UsuariosService } from '../providers/usuarios.service';
 import { LoadingService } from '../providers/loading.service';
 import { ToastService } from '../providers/toast.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ListaUsuariosService } from '../providers/lista-usuarios.service';
 
 @Component({
@@ -14,7 +13,7 @@ import { ListaUsuariosService } from '../providers/lista-usuarios.service';
   templateUrl: './menu-inicial.page.html',
   styleUrls: ['./menu-inicial.page.scss'],
 })
-export class MenuInicialPage implements OnInit, OnDestroy {
+export class MenuInicialPage implements OnInit {
 
   public obsUSuarios: any;
   public usuario: Usuarios;
@@ -96,7 +95,5 @@ export class MenuInicialPage implements OnInit, OnDestroy {
 
     await alert.present();
   }
-  ngOnDestroy(): void {
-    this.obsUSuarios.unsubscribe();
-  }
+  
 }
